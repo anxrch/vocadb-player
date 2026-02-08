@@ -1,0 +1,14 @@
+{
+  "name": "vocadb-player",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "tauri": "tauri",
+    "dev:x11": "GDK_BACKEND=x11 WINIT_UNIX_BACKEND=x11 GDK_GL=disable WEBKIT_DISABLE_COMPOSITING_MODE=1 WEBKIT_DISABLE_DMABUF_RENDERER=1 WEBKIT_DISABLE_ACCELERATED_2D_CANVAS=1 WEBKIT_DISABLE_WEBGL=1 WEBKIT_DISABLE_SANDBOX=1 WEBKIT_DISABLE_GPU_PROCESS=1 LIBGL_ALWAYS_SOFTWARE=1 tauri dev",
+    "build:appimage:x11": "GDK_BACKEND=x11 WINIT_UNIX_BACKEND=x11 tauri build --bundles appimage"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

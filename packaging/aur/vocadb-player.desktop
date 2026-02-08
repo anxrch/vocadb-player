@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=VocaDB Player
+Comment=Focused desktop wrapper for VocaDB
+Exec=vocadb-player
+Icon=vocadb-player
+Terminal=false
+Type=Application
+Categories=AudioVideo;Music;
+StartupWMClass=VocaDB Player

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spline+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>VocaDB Player</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-title">VocaDB Player</div>
+          <div class="brand-subtitle">Focused desktop wrapper</div>
+        </div>
+        <div class="controls">
+          <button class="control" data-action="back" aria-label="Back">
+            ←
+          </button>
+          <button class="control" data-action="forward" aria-label="Forward">
+            →
+          </button>
+          <button class="control" data-action="reload" aria-label="Reload">
+            ↻
+          </button>
+          <button class="control" data-action="home" aria-label="Home">
+            ⌂
+          </button>
+        </div>
+        <div class="address">
+          <span class="address-label">https://vocadb.net</span>
+        </div>
+        <div class="actions">
+          <button class="ghost" id="open-external">Open in Browser</button>
+          <button class="ghost" id="play-mpv">Play in mpv</button>
+        </div>
+      </header>
+      <main class="viewport">
+        <div class="loading" id="loading">Loading VocaDB…</div>
+        <iframe
+          id="vocadb-frame"
+          title="VocaDB"
+          src="https://vocadb.net/"
+          csp="default-src https: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-src 'none'; child-src 'none'; media-src 'none'"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        ></iframe>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+pkgname=vocadb-player
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="VocaDB desktop player wrapper"
+arch=('x86_64')
+url="https://vocadb.net/"
+license=('custom')
+depends=(
+  'gtk3'
+  'webkit2gtk'
+  'libsoup3'
+  'libayatana-appindicator'
+  'gstreamer'
+  'gst-plugins-base'
+  'gst-plugins-good'
+  'gst-plugins-bad'
+  'gst-plugins-ugly'
+  'gst-libav'
+)
+optdepends=(
+  'mpv: external video playback'
+  'yt-dlp: video extraction for mpv'
+)
+makedepends=(
+  'npm'
+  'rust'
+  'cargo'
+  'pkgconf'
+)
+source=("git+https://example.com/your/vocadb-player.git#tag=v${pkgver}")
+sha256sums=('SKIP')
+
+build() {
+  cd "${srcdir}/${pkgname}"
+  npm install
+  npm run tauri build -- --bundles none
+}
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  install -Dm755 "src-tauri/target/release/vocadb-player" \
+    "${pkgdir}/usr/lib/vocadb-player/vocadb-player"
+  install -Dm755 "packaging/aur/vocadb-player.sh" \
+    "${pkgdir}/usr/bin/vocadb-player"
+  install -Dm644 "packaging/aur/vocadb-player.desktop" \
+    "${pkgdir}/usr/share/applications/vocadb-player.desktop"
+  install -Dm644 "src-tauri/icons/icon.png" \
+    "${pkgdir}/usr/share/icons/hicolor/512x512/apps/vocadb-player.png"
+}
