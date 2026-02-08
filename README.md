@@ -29,6 +29,15 @@ Note: run `npm run dev:x11` (not `npx run dev:x11`).
 npm run tauri build
 ```
 
+## Releases (GitHub Actions)
+
+Tag a version to trigger builds for AppImage, Windows, and macOS:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
 ### AppImage
 
 ```bash
