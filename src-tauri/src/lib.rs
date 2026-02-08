@@ -1,7 +1,6 @@
 use std::process::Command;
-use tauri::{Manager, Webview};
+use tauri::{Manager, Url, Webview};
 use tauri_plugin_opener::OpenerExt;
-use url::Url;
 
 const BLOCKED_HOSTS: [&str; 3] = ["nicovideo.jp", "nico.ms", "smilevideo.jp"];
 
